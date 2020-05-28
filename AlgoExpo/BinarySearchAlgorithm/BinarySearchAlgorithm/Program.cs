@@ -13,18 +13,38 @@ namespace BinarySearchAlgorithm
         static void Main(string[] args)
         {
             Initialize();
-            BinarySearch();
+            var index = BinarySearch();
         }
 
         public static int BinarySearch()
         {
-            decimal count = array.Count - 1;
+            decimal left = 0;
+            decimal right = array.Count - 1;
+            return Search(array, left, right);       
+        }
+
+        public static int Search(List<int> array, decimal left, decimal right)
+        {
+            if (left > right)
+                return -1;
+
             decimal divider = 2;
+            int middle = (int)Math.Floor((left+right) / divider);
 
-            var middle = Math.Floor(count / divider);
-            
+            if (array[middle] > target)
+            {
+                right = middle - 1;
+                return Search(array, left, right);
+            }
+            else if (array[middle] < target)
+            {
+                left = middle + 1;
+                return Search(array, left, right);
+            }
+            else if (array[middle] == target)
+                return middle;
 
-            return 0;
+            return -1;
         }
 
         public static void Initialize()
@@ -32,7 +52,7 @@ namespace BinarySearchAlgorithm
             array.Add(0);
             array.Add(1);
             array.Add(21);
-            array.Add(33);
+            array.Add(34);
             array.Add(45);
             array.Add(45);
             array.Add(61);
