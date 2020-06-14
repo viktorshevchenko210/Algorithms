@@ -20,24 +20,6 @@ namespace BranchSums
 
         public static void BranchSum(BinaryTree tree, int sum)
         {
-            if (tree == null)
-            {
-                result.Add(sum);
-                return;
-            }
-
-            sum += tree.Value;
-
-            if(tree.Left == null)
-            {
-                BranchSum(tree.Right, sum);
-            }
-            else
-            {
-                BranchSum(tree.Left,sum);
-                if(tree.Right != null)
-                    BranchSum(tree.Right,sum);
-            }
 
         }
 
