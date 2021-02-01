@@ -10,53 +10,52 @@ namespace MonotonicArray
     {
         static void Main(string[] args)
         {
-            int[] array = new int[8];
-            Initialize(array);
+            int[] array = new int[] { -1, -5, -10, -1100, -1100, -1101, -1102, -9001 };
             var isMonotonic = IsMonotonic(array);
+            Console.WriteLine(isMonotonic);
+            Console.ReadKey();
         }
 
-        static bool IsMonotonic(int[] array)
+        public static bool IsMonotonic(int[] array)
         {
-            if (array.Length <= 2)
+            if (array.Count() == 0 || array.Count() == 1)
                 return true;
 
-            bool isAsc = false;
+            bool isDeacrease = false;
+            bool isIncrease = false;
 
-            if (array[0] < array[1])
-                isAsc = true;
-
-            for(int i = 0; i < array.Length-1; i++)
+            for (int i = 0; i < array.Length - 1; i++)
             {
-                if (isAsc)
-                {
-                    if (array[i] < array[i + 1])
-                        continue;
-                    else
-                        return true;
-                }
-                else
-                {
+                var current = array[i];
+                var next = array[i + 1];
 
-                    if (array[i] > array[i + 1])
-                        continue;
-                    else
-                        return true;
+                if (!isDeacrease && !isIncrease)
+                {
+                    if (current > next)
+                        isDeacrease = true;
+                    
+                    if (current < next)
+                        isIncrease = true;
+
+                    continue;
+                }
+
+                if (isDeacrease)
+                {
+                    if (current < next)
+                        return false;
+                }
+
+                if (isIncrease)
+                {
+                    if (current > next)
+                        return false;
                 }
             }
 
-            return false;
+            return true;
         }
 
-        static void Initialize(int[] array)
-        {
-            array[0] = -1;
-            array[1] = -5;
-            array[2] = -10;
-            array[3] = -1100;
-            array[4] = -1100;
-            array[5] = -1101;
-            array[6] = -1102;
-            array[7] = -9001;
-        }
+
     }
 }

@@ -8,9 +8,9 @@ namespace BSTConstruction
 {
     public class BST
     {
-        public int value { get; set; }
-        public BST left { get; set; }
-        public BST right { get; set; }
+        public int value;
+        public BST left;
+        public BST right;
 
         public BST(int value)
         {
@@ -19,102 +19,114 @@ namespace BSTConstruction
 
         public BST Insert(int value)
         {
-            var node = FindLastNode(value);
-            if (node.value < value)
+            if (this.value > value)
             {
-                node.right = new BST(value);
-                return node.right;
-            }
-            else
-            {
-                node.left = new BST(value);
-                return node.left;
-            }
-        }
-
-        private BST FindLastNode(int value)
-        {
-            BST next = this;
-            BST lastNode = this;
-
-            while (next != null)
-            {
-                lastNode = next;
-
-                if (next.value < value)
-                    next = next.right;
+                if (left == null)
+                    left = new BST(value);
                 else
-                    next = next.left;
+                    left.Insert(value);
+            }
+            else if (this.value < value)
+            {
+                if (right == null)
+                    right = new BST(value);
+                else
+                    right.Insert(value);
+            }
+            else if(this.value == value)
+            {
+                if (right == null)
+                    right = new BST(value);
+                else
+                    right.Insert(value);
             }
 
-            return lastNode;
+            return this;
         }
 
         public bool Contains(int value)
         {
-            BST next = this;
-
-            while(next != null)
+            if (this.value > value)
             {
-                if (next.value == value)
-                    return true;
+                if (left == null)
+                    return false;
 
-                if (next.value < value)
-                    next = next.right;
-                else
-                    next = next.left;
+                return left.Contains(value);
             }
+            else if (this.value < value)
+            {
+                if (right == null)
+                    return false;
+
+                return right.Contains(value);
+            }
+            else if(this.value == value)
+                return true;
 
             return false;
         }
 
         public BST Remove(int value)
         {
-            if(this.value == value)
-            {
-                var smallest = FindAndDeleteTheSmallestInRightSubtree();
-                smallest.left = left;
-                smallest.right = right;
-                left = null;
-                right = null;
-                return this;
-            }
-
-            var next = right;
-            while (next != null)
-            {
-                if (next.value == value)
-                {
-                    var smallest = FindAndDeleteTheSmallestInRightSubtree();
-                    smallest.left = next.left;
-                    smallest.right = next.right;
-                    return next;
-                }
-                next = next.left;
-            }
-
-            return null;
+            return Remove(value, null);
         }
 
-        public BST FindAndDeleteTheSmallestInRightSubtree()
+        private BST Remove(int value, BST parent)
         {
-            var next = this.right;
-            BST lastNode = null;
-
-            while(next != null)
+            if(this.value > value)
             {
-
-                if (next.left == null)
+                left.Remove(value, this);
+            }
+            else if(this.value < value)
+            {
+                right.Remove(value, this);
+            }
+            else
+            {
+                if (right == null && left == null)
                 {
-                    lastNode.left = null;
-                    return next;
-                }
+                    if (parent == null)
+                        return null;
 
-                lastNode = next;
-                next = next.left;
+                    if (parent.left != null && parent.left.value == value)
+                        parent.left = null;
+                    else if (parent.right != null && parent.right.value == value)
+                        parent.right = null;
+                }
+                else if(right != null && left != null)
+                {
+                    var min = right.FindMinValue();
+                    this.value = min.value;
+                    right.Remove(min.value, this);
+                }
+                else if(right != null || left != null)
+                {
+                    if (right != null)
+                    {
+                        this.value = right.value;
+                        this.right = right.right;
+                    }
+                    else if(left != null)
+                    {
+                        this.value = left.value;
+                        this.left = left.left;
+                    }
+                }
             }
 
-            return next;
+            return this;
+        }
+
+        private BST FindMinValue()
+        {
+            if (left == null)
+            {
+                return this;
+            }
+            else
+            {
+                return left.FindMinValue();
+            }
         }
     }
 }

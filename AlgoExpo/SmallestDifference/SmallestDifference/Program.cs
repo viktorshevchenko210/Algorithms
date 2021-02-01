@@ -16,40 +16,46 @@ namespace SmallestDifference
             var result = SmallestDifference(first, second);
         }
 
-        static int[] SmallestDifference(int[] first, int[] second)
+        private static int[] SmallestDifference(int[] first, int[] second)
         {
+            Array.Sort(first);
+            Array.Sort(second);
+
             int[] result = new int[2];
 
-            first = first.OrderBy(i => i).ToArray();
-            second = second.OrderBy(i => i).ToArray();
+            var firstLength = first.Length;
+            var secondLength = second.Length;
 
-            int left = 0;
-            int right = 0;
+            var firstCounter = 0;
+            var secondCounter = 0;
 
-            while(left != first.Length || right != second.Length)
+            var smallestDifference = Int32.MaxValue;
+
+            while (firstLength != firstCounter && secondLength != secondCounter)
             {
-                if(first[left] == second[right])
-                {
-                    result[0] = first[left];
-                    result[1] = second[right];
-                    return result;
-                }
-                else if(first[left] > second[right])
-                {
-                    if ()
-                    {
+                var left = first[firstCounter];
+                var right = second[secondCounter];
 
-                    }
-                    second++;
-                }
-                else if(first[left] < second[right])
+                var currentDifference = Math.Abs(left - right);
+
+                if (currentDifference < smallestDifference)
                 {
-                    left++;
+                    smallestDifference = currentDifference;
+                    result[0] = left;
+                    result[1] = right;
                 }
+
+                if (left < right)
+                    firstCounter++;
+                else
+                    secondCounter++;
+                
+
             }
 
             return result;
         }
+
 
         static void Initialize(int[] first, int[] second)
         {

@@ -64,3 +64,7 @@ AlgoExpo/BranchSums/BSTTraversal/BSTTraversal/bin/
 AlgoExpo/BranchSums/BSTTraversal/.vs/
 AlgoExpo/BSTConstruction/.vs/
 AlgoExpo/ValidateBST/.vs/
+bin
+obj
+packages
+.vs

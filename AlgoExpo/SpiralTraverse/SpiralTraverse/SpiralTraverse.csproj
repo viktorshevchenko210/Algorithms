@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{ACDFA7F0-4C1F-48DF-B70D-09B18AB3A1F1}</ProjectGuid>
+    <ProjectGuid>{508B9B19-B096-4F34-8A76-374490C35BF6}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>SpiralTraverse</RootNamespace>
     <AssemblyName>SpiralTraverse</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>

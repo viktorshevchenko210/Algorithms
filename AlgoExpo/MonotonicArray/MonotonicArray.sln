@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29911.84
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonotonicArray", "MonotonicArray\MonotonicArray.csproj", "{4634F93C-C533-4CED-8144-7F74E9B29CF8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonotonicArray", "MonotonicArray\MonotonicArray.csproj", "{64529776-69BC-4A3D-ABF6-CEC349E74D97}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4634F93C-C533-4CED-8144-7F74E9B29CF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4634F93C-C533-4CED-8144-7F74E9B29CF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4634F93C-C533-4CED-8144-7F74E9B29CF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4634F93C-C533-4CED-8144-7F74E9B29CF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64529776-69BC-4A3D-ABF6-CEC349E74D97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64529776-69BC-4A3D-ABF6-CEC349E74D97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64529776-69BC-4A3D-ABF6-CEC349E74D97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64529776-69BC-4A3D-ABF6-CEC349E74D97}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {A4E25215-8A27-4D50-B050-6A87C5D5989F}
+		SolutionGuid = {5541FD6D-9A48-4B5D-905D-F3596BEDD9E9}
 	EndGlobalSection
 EndGlobal
