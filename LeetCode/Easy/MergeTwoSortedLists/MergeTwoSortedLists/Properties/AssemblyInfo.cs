@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SimpleRecursion")]
+[assembly: AssemblyTitle("MergeTwoSortedLists")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SimpleRecursion")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
+[assembly: AssemblyProduct("MergeTwoSortedLists")]
+[assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("e52c886e-a13b-4e32-9864-d6678a0ded90")]
+[assembly: Guid("2ae7f80b-754f-4b9b-86fb-979476de598a")]
 
 // Version information for an assembly consists of the following four values:
 //
