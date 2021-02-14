@@ -5,7 +5,7 @@ February 2021:
 05 - 28
 06 - 58(Faster than 100%)
 07 - 83, 100, 88(Not optimal. Firstly, fill end of the nums1, comparing nums1 with nums2 from the end.)
-08 - 
+14 - 136
 
 
 Done with help:
@@ -15,7 +15,6 @@ February 2021:
 05 - 26, 27
 06 - 35
 07 - 108
-08 - 
 
 
-Total: Easy - 12
+Total: Easy - 15
