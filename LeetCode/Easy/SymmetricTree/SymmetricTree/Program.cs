@@ -52,27 +52,6 @@ namespace SymmetricTree
                 return false;
 
             return true;
-        }
-
-        //static bool IsSymmetricRecursive(TreeNode left, TreeNode right, ref bool result)
-        //{
-        //    if (left == null && right != null)
-        //        return false;
-
-        //    if (right == null && left != null)
-        //        return false;
-
-        //    if (left == null && right == null)
-        //        return true;
-
-        //    if (right.val != left.val)
-        //        return false;
-
-        //    if (left.left != null)
-        //        return IsSymmetricRecursive(left.left, right.right);
-
-
-        //        return  IsSymmetricRecursive(left.right, right.left);
-        //}
+        }      
     }
 }
