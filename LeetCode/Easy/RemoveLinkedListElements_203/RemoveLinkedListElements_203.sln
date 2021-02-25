@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29911.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RemoveLinkedListElements_203", "RemoveLinkedListElements_203\RemoveLinkedListElements_203.csproj", "{C1033B0E-29A3-4A45-A86C-533FCA2F4441}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C1033B0E-29A3-4A45-A86C-533FCA2F4441}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1033B0E-29A3-4A45-A86C-533FCA2F4441}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1033B0E-29A3-4A45-A86C-533FCA2F4441}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1033B0E-29A3-4A45-A86C-533FCA2F4441}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D598CC48-1E56-4954-BE53-A9190B97F040}
+	EndGlobalSection
+EndGlobal
