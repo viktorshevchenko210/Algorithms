@@ -13,50 +13,41 @@ namespace SummaryRanges_228
 
         static IList<string> SummaryRanges(int[] nums)
         {
-            List<string> ranges = new List<string>();
+            List<string> result = new List<string>();
+            int start = nums[0], end = nums[0];
 
-            bool isRange = false;
-
-            int steps = 0;
-            int startRange = 0;
-
-            for (int i = 0; i <= nums.Length - 1; i++)
+            for (int i = 1; i < nums.Length; i++)
             {
-                var current = nums[i];
-                var next = nums[i + 1];
-
-                if(next - current == 1)
+                if (nums[i] == end + 1)
                 {
-                    if (isRange)
-                    {
-                        steps++;
-                        continue;
-                    }
-                    startRange = current;
-                    isRange = true;
+                    end = nums[i];
                 }
                 else
                 {
-                    if (isRange)
+                    if(end - start >= 1)
                     {
-                        if(steps > 0)
-                        {
-                            ranges.Add($"{startRange}->{current}");
-                        }
-                        else
-                        {
-                            ranges.Add($"{startRange}");
-                        }
-                        isRange = false;
+                        result.Add($"{start}->{end}");
                     }
                     else
                     {
-                        ranges.Add($"{current}");
+                        result.Add($"{start}");
                     }
+
+                    start = end = nums[i];
                 }
             }
 
-            return ranges;
+            if (end - start >= 1)
+            {
+                result.Add($"{start}->{end}");
+            }
+
+            else
+            {
+                result.Add($"{start}");
+            }
+
+            return result;
         }
     }
 }
