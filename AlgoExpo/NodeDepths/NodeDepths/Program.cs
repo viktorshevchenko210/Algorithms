@@ -1,142 +1,59 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace NodeDepths
 {
-    class Program
-    {
-        static BinaryTree tree;
-        static int result = 0;
 
+	public class BinaryTree
+	{
+		public int value;
+		public BinaryTree left;
+		public BinaryTree right;
+
+		public BinaryTree(int value)
+		{
+			this.value = value;
+			left = null;
+			right = null;
+		}
+	}
+	class Program
+    {
         static void Main(string[] args)
         {
-            Initialize3();
-            int depth = -1;
-            FindNodeDepth(tree, depth);
-        }
+			BinaryTree tree = new BinaryTree(1);
+			tree.left = new BinaryTree(2);
+			tree.left.left = new BinaryTree(4);
+			tree.left.left.left = new BinaryTree(8);
 
-        static void FindNodeDepth(BinaryTree tree, int depth)
-        {
-            if (tree == null)
-            {
-                depth--;
-                return;
-            }
+			tree.left.left.right = new BinaryTree(9);
 
-            depth++;
-            result += depth;
+			tree.left.right = new BinaryTree(5);
 
-            if(tree.Left == null)
-            {
-                FindNodeDepth(tree.Right, depth);
-            }
-            else
-            {
-                FindNodeDepth(tree.Left, depth);
-                if (tree.Right != null)
-                    FindNodeDepth(tree.Right, depth);
-            }
+			tree.right = new BinaryTree(3);
+			tree.right.left = new BinaryTree(6);
 
-        }
+			tree.right.right = new BinaryTree(7);
 
-        public static void Initialize()
-        {
-            tree = new BinaryTree();
-            tree.Value = 1;
+			var result = NodeDepths(tree);
+		}
 
-            tree.Left = new BinaryTree();
-            tree.Left.Value = 2;
+		public static int NodeDepths(BinaryTree root)
+		{
+			return NodeDepths(root, 0, 0);
+		}
 
-            tree.Left.Right = new BinaryTree();
-            tree.Left.Right.Value = 5;
+		public static int NodeDepths(BinaryTree root, int depth, int sum)
+		{
+			if (root == null)
+				return sum;
 
-            tree.Left.Left = new BinaryTree();
-            tree.Left.Left.Value = 4;
+			sum = NodeDepths(root.left, depth + 1, sum);
 
-            tree.Left.Left.Right = new BinaryTree();
-            tree.Left.Left.Right.Value = 9;
+			sum += depth;
 
-            tree.Left.Left.Left = new BinaryTree();
-            tree.Left.Left.Left.Value = 8;
+			sum = NodeDepths(root.right, depth + 1, sum);
 
-            tree.Right = new BinaryTree();
-            tree.Right.Value = 3;
-
-            tree.Right.Left = new BinaryTree();
-            tree.Right.Left.Value = 6;
-
-            tree.Right.Right = new BinaryTree();
-            tree.Right.Right.Value = 7;
-        }
-
-        public static void Initialize2()
-        {
-            tree = new BinaryTree();
-            tree.Value = 1;
-
-            tree.Left = new BinaryTree();
-            tree.Left.Value = 2;
-
-            tree.Left.Left = new BinaryTree();
-            tree.Left.Left.Value = 3;
-
-            tree.Left.Left.Left = new BinaryTree();
-            tree.Left.Left.Left.Value = 4;
-
-            tree.Left.Left.Left.Left = new BinaryTree();
-            tree.Left.Left.Left.Left.Value = 5;
-
-            tree.Left.Left.Left.Left.Left = new BinaryTree();
-            tree.Left.Left.Left.Left.Left.Value = 6;
-
-            tree.Left.Left.Left.Left.Left.Right = new BinaryTree();
-            tree.Left.Left.Left.Left.Left.Right.Value = 7;
-        }
-
-        public static void Initialize3()
-        {
-            tree = new BinaryTree();
-            tree.Value = 1;
-
-            tree.Left = new BinaryTree();
-            tree.Left.Value = 2;
-
-            tree.Left.Left = new BinaryTree();
-            tree.Left.Left.Value = 3;
-
-            tree.Left.Left.Left = new BinaryTree();
-            tree.Left.Left.Left.Value = 4;
-
-            tree.Left.Left.Left.Left = new BinaryTree();
-            tree.Left.Left.Left.Left.Value = 5;
-
-            tree.Left.Left.Left.Left.Left = new BinaryTree();
-            tree.Left.Left.Left.Left.Left.Value = 6;
-
-            tree.Left.Left.Left.Left.Left.Right = new BinaryTree();
-            tree.Left.Left.Left.Left.Left.Right.Value = 7;
-
-            tree.Right = new BinaryTree();
-            tree.Right.Value = 8;
-
-            tree.Right.Right = new BinaryTree();
-            tree.Right.Right.Value = 9;
-
-            tree.Right.Right.Right = new BinaryTree();
-            tree.Right.Right.Right.Value = 10;
-
-            tree.Right.Right.Right.Right = new BinaryTree();
-            tree.Right.Right.Right.Right.Value = 11;
-
-            tree.Right.Right.Right.Right.Right = new BinaryTree();
-            tree.Right.Right.Right.Right.Right.Value = 12;
-
-            tree.Right.Right.Right.Right.Right.Left = new BinaryTree();
-            tree.Right.Right.Right.Right.Right.Left.Value = 13;
-
-        }
-    }
+			return sum;
+		}
+	}
 }
